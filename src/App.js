@@ -1,11 +1,11 @@
 import React from 'react'
 import './App.css'
 import { Switch, Route } from 'react-router-dom'
-import HomePage from './pages/homepage/homepage.component'
-import ShopPage from './pages/shop/shop.component'
+import HomePage from './pages/HomePage/HomePage'
+import ShopPage from './pages/ShopPage/ShopPage'
 import SignInAndSignUp from './pages/SignInAndSignUp/SignInAndSignUp'
 
-import Header from './components/header/header.component'
+import Header from './components/Header/Header'
 
 function App() {
   return (
