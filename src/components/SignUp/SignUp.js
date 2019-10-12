@@ -88,10 +88,10 @@ class SignUp extends React.Component {
         <h2 className="title">I do not have a account</h2>
         <span>Sign up with your email and password</span>
         <form className="sign-up-form" onSubmit={this.handleSubmit}>
-          {formConfig.map((formValue, { id }) => (
-            <FormInput {...formValue} required key={id} />
+          {formConfig.map((formValue) => (
+            <FormInput {...formValue} required key={formValue.id} />
           ))}
-          <CustomButton type="submit"></CustomButton>
+          <CustomButton type="submit">SIGN UP</CustomButton>
         </form>
       </div>
     )
