@@ -1,6 +1,6 @@
 import { createAction, createReducer } from '../reduxHelpers/reduxHelpers'
 
-const NAME = 'users'
+export const NAME = 'user'
 
 export const initialState = {
   currentUser: null,
