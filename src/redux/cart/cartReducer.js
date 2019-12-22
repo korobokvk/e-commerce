@@ -18,7 +18,7 @@ export const actions = {
 }
 export const handlers = {
   [types.TOGGLE_CART_HIDDEN]: (state) => ({ ...state, hidden: !state.hidden }),
-  [types.ADD_ITEM]: (state, { payload }) => ({ cartItems: addItemToCart(state.cartItems, payload) }),
+  [types.ADD_ITEM]: (state, { payload }) => ({ ...state, cartItems: addItemToCart(state.cartItems, payload) }),
 }
 
 export default createReducer(initialState, handlers)
