@@ -1,4 +1,9 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Project status: WIP
+
+# This is home pet project for learn some of React features
+
+Before run this project you have to set up your own configuration file. How to set up look inside `config.example.js`.<br>
+Also you can look on this [here](https://path-to-start.herokuapp.com/)
 
 ## Available Scripts
 
