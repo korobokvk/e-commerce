@@ -1,10 +1,6 @@
 import React from 'react'
-import cn from 'classnames'
-import './CustomButton.scss'
+import { CustomButtonContainer } from './CustomButtonStyles'
 
-const CustomButton = ({ children, isGoogleSignIn, inverted, ...rest }) => (
-  <button className={cn('custom-button', { 'google-sign-in': isGoogleSignIn, inverted })} {...rest}>
-    {children}
-  </button>
-)
+const CustomButton = ({ children, ...rest }) => <CustomButtonContainer {...rest}>{children}</CustomButtonContainer>
+
 export default CustomButton
