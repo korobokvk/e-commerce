@@ -3,20 +3,26 @@ import { connect } from 'react-redux'
 import { get } from 'lodash'
 import { selectCollection } from '../../selectors/shopSelectors'
 import CollectionItem from '../../components/CollectionItem/CollectionItem'
-import './CollectionPage.scss'
+import {
+  CollectionItemPageContainer,
+  CollectionItemPageItem,
+  CollectionItemPageItemsContainer,
+  CollectionItemPageTitle,
+} from './CollectionPageStyles'
 
 const CollectionPage = ({ collection }) => {
-  console.log(collection)
   const { title, items } = collection
   return (
-    <div className="collection-page">
-      <h2 className="title">{title}</h2>
-      <div className="items">
+    <CollectionItemPageContainer>
+      <CollectionItemPageTitle>{title}</CollectionItemPageTitle>
+      <CollectionItemPageItemsContainer>
         {items.map((item) => (
-          <CollectionItem key={item.id} item={item} />
+          <CollectionItemPageItem key={item.id}>
+            <CollectionItem item={item} />
+          </CollectionItemPageItem>
         ))}
-      </div>
-    </div>
+      </CollectionItemPageItemsContainer>
+    </CollectionItemPageContainer>
   )
 }
 

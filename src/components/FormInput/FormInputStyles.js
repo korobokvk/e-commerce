@@ -10,7 +10,7 @@ const letterSpacing = css`
 `
 const getStyleByType = ({ type }) => (type === 'password' ? letterSpacing : null)
 
-const getShrinkStyles = ({ value }) => (value.length ? shrinkLabel : null)
+const getShrinkStyles = ({ value }) => (value && value.length ? shrinkLabel : null)
 
 export const FormInputLabel = styled.label`
   color: grey;

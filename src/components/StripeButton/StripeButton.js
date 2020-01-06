@@ -1,7 +1,6 @@
 import React from 'react'
 import StripeCheckout from 'react-stripe-checkout'
 import { stripePublishKey } from '../../config'
-import './StripeButton.scss'
 
 const StripeButton = ({ price }) => {
   const priceForStripe = price * 100
