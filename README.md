@@ -1,6 +1,6 @@
 Project status: WIP
 
-# This is home pet project for learn some of React features
+# This is pet project for learn some of React features and environment libraries
 
 Before run this project you have to set up your own configuration file. How to set up look inside `config.example.js`.<br>
 Also you can look on this [here](https://path-to-start.herokuapp.com/)
