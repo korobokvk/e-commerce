@@ -14,16 +14,11 @@ const ShopPage = ({ match, updateCollections }) => {
   const [isLoading, setLoadingState] = useState(true)
   useEffect(() => {
     const collectionRef = firestore.collection('collections')
-    let unsubscribeFromSnapshot = null
-    unsubscribeFromSnapshot = collectionRef.onSnapshot(async (snapshot) => {
+    collectionRef.get().then((snapshot) => {
       const collectionsMap = convertCollectionsSnapshotToMap(snapshot)
       updateCollections(collectionsMap)
       setLoadingState(false)
     })
-    return () => {
-      // Unsubscribe from asyncObserver
-      unsubscribeFromSnapshot = null
-    }
   })
   return (
     <div className="shop-page">
