@@ -1,7 +1,18 @@
-import { createReducer } from '../reduxHelpers/reduxHelpers'
-import SHOP_DATA from '../../constants/shop.data'
+import { createReducer, createAction } from '../reduxHelpers/reduxHelpers'
 export const NAME = 'shop'
 
-const initialState = { collections: SHOP_DATA }
+const initialState = { collections: {} }
 
-export default createReducer(initialState, {})
+export const types = {
+  UPDATE_COLLECTIONS: `${NAME}/UPDATE_COLLECTIONS`,
+}
+
+export const actions = {
+  updateCollections: createAction(types.UPDATE_COLLECTIONS),
+}
+
+export const handlers = {
+  [types.UPDATE_COLLECTIONS]: (state, { payload }) => ({ ...state, collections: payload }),
+}
+
+export default createReducer(initialState, handlers)
