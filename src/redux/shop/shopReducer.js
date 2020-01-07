@@ -1,7 +1,7 @@
 import { createReducer, createAction } from '../reduxHelpers/reduxHelpers'
 export const NAME = 'shop'
 
-const initialState = { collections: {} }
+const initialState = { collections: null }
 
 export const types = {
   UPDATE_COLLECTIONS: `${NAME}/UPDATE_COLLECTIONS`,
