@@ -10,3 +10,7 @@ export const selectCollectionForPreview = createSelector(selectShopCollections, 
 
 export const selectCollection = (collectionParam) =>
   createSelector(selectShopCollections, (collections) => (collections ? collections[collectionParam] : null))
+
+export const selectIsCollectionFetching = createSelector(selectShop, (shop) => shop.isFetching)
+
+export const selectIsCollectionsLoaded = createSelector(selectShop, (shop) => !!shop.collections)

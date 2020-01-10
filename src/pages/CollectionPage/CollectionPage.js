@@ -1,7 +1,4 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { get } from 'lodash'
-import { selectCollection } from '../../selectors/shopSelectors'
 import CollectionItem from '../../components/CollectionItem/CollectionItem'
 import {
   CollectionItemPageContainer,
@@ -26,7 +23,4 @@ const CollectionPage = ({ collection }) => {
   )
 }
 
-const mapStateToProps = (state, { match }) => ({
-  collection: selectCollection(get(match, 'params.collectionId', null))(state),
-})
-export default connect(mapStateToProps)(CollectionPage)
+export default CollectionPage
