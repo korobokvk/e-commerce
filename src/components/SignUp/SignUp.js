@@ -12,19 +12,6 @@ const SignUp = ({ signUp }) => {
     password: '',
     confirmPassword: '',
   })
-
-  const signUpDetails = (email, displayName, password, event) => {
-    signUp(email, password, displayName)
-
-    // setCredentials({
-    //   displayName: '',
-    //   email: '',
-    //   password: '',
-    //   confirmPassword: '',
-    // })
-    //form.reset()
-  }
-
   const handleSubmit = (event) => {
     event.preventDefault()
     const { email, displayName, password, confirmPassword } = credentials
@@ -34,7 +21,7 @@ const SignUp = ({ signUp }) => {
       return
     }
 
-    signUpDetails(email, displayName, password, event)
+    signUp(email, password, displayName)
   }
 
   const handleChange = (event) => {
