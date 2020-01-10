@@ -12,6 +12,7 @@ const signOutSuccess = (state) => ({ ...state, currentUser: null })
 
 export const types = {
   SIGN_IN: createRequestTypes(`${NAME}/SIGN_IN`),
+  SIGN_UP: createRequestTypes(`${NAME}/SIGN_UP`),
   SIGN_OUT: createRequestTypes(`${NAME}/SIGN_OUT`),
   GOOGLE_SIGN_IN: `${NAME}/GOOGLE_SIGN_IN`,
   EMAIL_SIGN_IN: `${NAME}/EMAIL_SIGN_IN`,
@@ -20,6 +21,7 @@ export const types = {
 
 export const actions = {
   signIn: createRequestAction(types.SIGN_IN),
+  signUp: createRequestAction(types.SIGN_UP),
   signOut: createRequestAction(types.SIGN_OUT),
   googleSignIn: createAction(types.GOOGLE_SIGN_IN),
   emailSignIn: createAction(types.EMAIL_SIGN_IN),
@@ -33,6 +35,9 @@ export const handlers = {
   }),
   ...requestHelpers(types.SIGN_OUT, {
     requestSuccess: signOutSuccess,
+  }),
+  ...requestHelpers(types.SIGN_UP, {
+    requestSuccess,
   }),
 }
 

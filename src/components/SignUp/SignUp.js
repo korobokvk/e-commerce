@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
+import { connect } from 'react-redux'
 import FormInput from '../FormInput/FormInput'
 import CustomButton from '../CustomButton/CustomButton'
-import { auth, createUserProfileDocument } from '../../firebase/firebase'
+import { actions } from '../../redux/user/userReducer'
 import { SignUpContainer, SignUpTitle } from './SignUpStyles'
 
-const SignUp = () => {
+const SignUp = ({ signUp }) => {
   const [credentials, setCredentials] = useState({
     displayName: '',
     email: '',
@@ -12,16 +13,16 @@ const SignUp = () => {
     confirmPassword: '',
   })
 
-  const signUp = async (email, displayName, password, confirmPassword) => {
-    const { user } = await auth.createUserWithEmailAndPassword(email, password)
-    await createUserProfileDocument(user, { displayName })
+  const signUpDetails = (email, displayName, password, event) => {
+    signUp(email, password, displayName)
 
-    setCredentials({
-      displayName: '',
-      email: '',
-      password: '',
-      confirmPassword: '',
-    })
+    // setCredentials({
+    //   displayName: '',
+    //   email: '',
+    //   password: '',
+    //   confirmPassword: '',
+    // })
+    //form.reset()
   }
 
   const handleSubmit = (event) => {
@@ -33,11 +34,7 @@ const SignUp = () => {
       return
     }
 
-    try {
-      signUp(email, displayName, password, confirmPassword)
-    } catch (err) {
-      console.error(err)
-    }
+    signUpDetails(email, displayName, password, event)
   }
 
   const handleChange = (event) => {
@@ -94,4 +91,7 @@ const SignUp = () => {
   )
 }
 
-export default SignUp
+const mapDispatchToProps = (dispatch) => ({
+  signUp: (email, password, displayName) => dispatch(actions.signUp.request({ email, password, displayName })),
+})
+export default connect(null, mapDispatchToProps)(SignUp)
