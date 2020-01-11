@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import StripeButton from '../../components/StripeButton/StripeButton'
 
 export const CheckoutPageContainer = styled.div`
   width: 55%;
@@ -35,7 +34,7 @@ export const CheckoutPageTestMessage = styled.div`
   font-size: 24px;
   text-align: center;
 `
-export const CheckoutPageButtonContainer = styled(StripeButton)`
+export const CheckoutPageButtonContainer = styled.div`
   margin-left: auto;
   margin-top: 50px;
 `

@@ -5,10 +5,10 @@ import { actions } from '../../redux/shop/shopReducer'
 import CollectionsOverviewContainer from '../../components/CollectionsOverview/CollectionsOverviewContainer'
 import CollectionPageContainer from '../CollectionPage/CollectionPageContainer'
 
-const ShopPage = ({ match, fetchCollectionsStartAsync, isCollectionsLoaded }) => {
+const ShopPage = ({ match, fetchCollections }) => {
   useEffect(() => {
-    fetchCollectionsStartAsync()
-  }, [fetchCollectionsStartAsync])
+    fetchCollections()
+  }, [fetchCollections])
   return (
     <div className="shop-page">
       <Route exact path={`${match.path}`} component={CollectionsOverviewContainer} />
@@ -18,7 +18,7 @@ const ShopPage = ({ match, fetchCollectionsStartAsync, isCollectionsLoaded }) =>
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchCollectionsStartAsync: () => dispatch(actions.fetchCollections.request()),
+  fetchCollections: () => dispatch(actions.fetchCollections.request()),
 })
 
 export default connect(null, mapDispatchToProps)(ShopPage)

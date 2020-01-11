@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 import { selectCartItems, selectCartTotal } from '../../selectors/cartSelectors'
 import CheckoutItem from '../../components/CheckoutItem/CheckoutItem'
+import StripeButton from '../../components/StripeButton/StripeButton'
+
 import {
   CheckoutPageButtonContainer,
   CheckoutPageHeader,
@@ -39,7 +41,9 @@ const CheckoutPage = ({ total, cartItems }) => (
       <br />
       4242 4242 4242 4242 - Exp: Any future date - CVC: Any 3 digits
     </CheckoutPageTestMessage>
-    <CheckoutPageButtonContainer price={total} />
+    <CheckoutPageButtonContainer>
+      <StripeButton price={total} />
+    </CheckoutPageButtonContainer>
   </CheckoutPageContainer>
 )
 
