@@ -1,13 +1,13 @@
 import React from 'react'
 import SignIn from '../../components/SignIn/SignIn'
 import SignUp from '../../components/SignUp/SignUp'
-import { SigInAndSignUpContainer } from './SignInAndSignUpStyles'
+import { SignInAndSignUpContainer } from './SignInAndSignUpStyles'
 
 const SignInAndSignUp = () => (
-  <SigInAndSignUpContainer>
+  <SignInAndSignUpContainer>
     <SignIn />
     <SignUp />
-  </SigInAndSignUpContainer>
+  </SignInAndSignUpContainer>
 )
 
 export default SignInAndSignUp

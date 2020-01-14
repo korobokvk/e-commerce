@@ -5,7 +5,10 @@ const LARGE = 'large'
 const largeHeights = css`
   height: 380px;
 `
-const getSize = ({ size }) => (size === LARGE ? largeHeights : null)
+const normalHeights = css`
+  height: 240px;
+`
+const getSize = ({ size }) => (size === LARGE ? largeHeights : normalHeights)
 
 export const MenuItemBackgroundImage = styled.div`
   width: 100%;
@@ -66,5 +69,9 @@ export const MenuItemContainer = styled.div`
   }
   &:last-child {
     margin-left: 7.5px;
+  }
+
+  @media screen and (max-width: 800px) {
+    height: 200px;
   }
 `
