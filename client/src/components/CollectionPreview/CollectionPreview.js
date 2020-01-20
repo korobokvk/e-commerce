@@ -18,4 +18,4 @@ const CollectionPreview = ({ title, items, match, history }) => (
   </CollectionPreviewContainer>
 )
 
-export default withRouter(CollectionPreview)
+export default withRouter(React.memo(CollectionPreview))

@@ -1,15 +1,18 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, lazy, Suspense } from 'react'
 import { createStructuredSelector } from 'reselect'
 import { Switch, Route, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
-import HomePage from './pages/HomePage/HomePage'
-import ShopPage from './pages/ShopPage/ShopPage'
-import CheckoutPage from './pages/CheckoutPage/CheckoutPage'
-import SignInAndSignUp from './pages/SignInAndSignUp/SignInAndSignUp'
 import { selectCurrentUser } from './selectors/userSelectors'
 import { actions } from './redux/user/userReducer'
 import Header from './components/Header/Header'
 import { GlobalStyle } from './globalStyle'
+import Spinner from './components/Spinner/Spinner'
+import ErrorBoundary from './HOC/ErrorBoundary/ErrorBoundary'
+
+const HomePage = lazy(() => import('./pages/HomePage/HomePage'))
+const ShopPage = lazy(() => import('./pages/ShopPage/ShopPage'))
+const CheckoutPage = lazy(() => import('./pages/CheckoutPage/CheckoutPage'))
+const SignInAndSignUp = lazy(() => import('./pages/SignInAndSignUp/SignInAndSignUp'))
 
 const App = ({ currentUser, checkUserSession }) => {
   useEffect(() => {
@@ -20,10 +23,14 @@ const App = ({ currentUser, checkUserSession }) => {
       <GlobalStyle />
       <Header />
       <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route path="/shop" component={ShopPage} />
-        <Route exact path="/checkout" component={CheckoutPage} />
-        <Route exact path="/signin" render={() => (currentUser ? <Redirect to="/" /> : <SignInAndSignUp />)} />
+        <ErrorBoundary>
+          <Suspense fallback={<Spinner />}>
+            <Route exact path="/" component={HomePage} />
+            <Route path="/shop" component={ShopPage} />
+            <Route exact path="/checkout" component={CheckoutPage} />
+            <Route exact path="/signin" render={() => (currentUser ? <Redirect to="/" /> : <SignInAndSignUp />)} />
+          </Suspense>
+        </ErrorBoundary>
       </Switch>
     </div>
   )
